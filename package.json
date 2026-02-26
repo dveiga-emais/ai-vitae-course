@@ -1,0 +1,14 @@
+{
+  "name": "ai-vitae-course",
+  "private": true,
+  "description": "Repo-level tooling (commitlint, husky)",
+  "type": "module",
+  "devDependencies": {
+    "@commitlint/cli": "^20.4.2",
+    "@commitlint/config-conventional": "^20.4.2",
+    "husky": "^9.1.7"
+  },
+  "scripts": {
+    "prepare": "husky"
+  }
+}

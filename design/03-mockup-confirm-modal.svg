@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 600" font-family="Roboto, Arial, sans-serif">
+  <title>Mockup: ConfirmModal (Genérico reutilizable)</title>
+  <desc>Modal de confirmación genérico con dos variantes: primary y destructive. Material UI: Dialog compacto con acciones text buttons.</desc>
+
+  <defs>
+    <filter id="dialog-shadow">
+      <feDropShadow dx="0" dy="11" stdDeviation="15" flood-color="#000" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- ===== VARIANTE PRIMARY ===== -->
+  <!-- Label -->
+  <text x="20" y="28" fill="#424242" font-size="14" font-weight="500">Variante: Primary (ej. Calcular ICE con IA)</text>
+
+  <!-- Scrim -->
+  <rect x="0" y="40" width="520" height="240" fill="#000000" opacity="0.5" rx="4"/>
+
+  <!-- Dialog -->
+  <rect x="80" y="70" width="360" height="180" rx="8" fill="#FFFFFF" filter="url(#dialog-shadow)"/>
+
+  <!-- Title -->
+  <text x="104" y="106" fill="#212121" font-size="18" font-weight="500">Calcular ICE con IA</text>
+  <!-- Close X -->
+  <text x="416" y="106" text-anchor="middle" fill="#757575" font-size="16">✕</text>
+
+  <!-- Divider -->
+  <line x1="80" y1="118" x2="440" y2="118" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Message -->
+  <text x="104" y="150" fill="#616161" font-size="14">¿Quieres que la IA estime el ICE</text>
+  <text x="104" y="170" fill="#616161" font-size="14">para esta tarea?</text>
+
+  <!-- Actions -->
+  <text x="300" y="228" fill="#757575" font-size="13" font-weight="500">CANCELAR</text>
+  <text x="386" y="228" fill="#1976D2" font-size="13" font-weight="500">CALCULAR</text>
+
+  <!-- ===== VARIANTE DESTRUCTIVE ===== -->
+  <!-- Label -->
+  <text x="20" y="318" fill="#424242" font-size="14" font-weight="500">Variante: Destructive (ej. Eliminar tarea)</text>
+
+  <!-- Scrim -->
+  <rect x="0" y="330" width="520" height="260" fill="#000000" opacity="0.5" rx="4"/>
+
+  <!-- Dialog -->
+  <rect x="80" y="360" width="360" height="200" rx="8" fill="#FFFFFF" filter="url(#dialog-shadow)"/>
+
+  <!-- Title with warning icon -->
+  <text x="104" y="398" fill="#D32F2F" font-size="18" font-weight="500">Eliminar tarea</text>
+  <!-- Close X -->
+  <text x="416" y="398" text-anchor="middle" fill="#757575" font-size="16">✕</text>
+
+  <!-- Divider -->
+  <line x1="80" y1="410" x2="440" y2="410" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Warning icon (Material style) -->
+  <circle cx="120" y="450" r="16" fill="#FFF3E0"/>
+  <text x="120" y="455" text-anchor="middle" fill="#E65100" font-size="16">⚠</text>
+
+  <!-- Message -->
+  <text x="104" y="448" fill="#616161" font-size="14">¿Seguro que quieres eliminar</text>
+  <text x="104" y="468" fill="#616161" font-size="14">«Implementar login con OAuth»?</text>
+  <text x="104" y="492" fill="#616161" font-size="13">Esta acción no se puede deshacer.</text>
+
+  <!-- Actions -->
+  <text x="288" y="538" fill="#757575" font-size="13" font-weight="500">CANCELAR</text>
+  <!-- Destructive button: contained red -->
+  <rect x="362" y="518" width="58" height="32" rx="4" fill="transparent"/>
+  <text x="362" y="538" fill="#D32F2F" font-size="13" font-weight="500">ELIMINAR</text>
+</svg>

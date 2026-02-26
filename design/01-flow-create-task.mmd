@@ -1,0 +1,50 @@
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#4F46E5', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3730A3', 'lineColor': '#6366F1', 'secondaryColor': '#E0E7FF', 'tertiaryColor': '#F5F3FF', 'fontSize': '14px'}}}%%
+
+flowchart TD
+    A([Usuario en MainView]) --> B["Pulsa<br/><b>+ Nueva tarea</b><br/>en Toolbar"]
+    B --> C["Se abre <b>TaskModal</b><br/>en modo creación"]
+
+    C --> D["Rellena <b>Título</b><br/><i>obligatorio</i>"]
+    D --> E["Rellena <b>Descripción</b><br/><i>opcional, necesaria para IA</i>"]
+    E --> F{"¿Quiere definir<br/>ICE manualmente?"}
+
+    F -- Sí --> G["Introduce valores<br/>Impact / Confidence / Ease<br/><i>enteros 0-100</i>"]
+    G --> H{"¿Valores válidos?"}
+    H -- "Fuera de rango" --> I["Se aplica clamp<br/>0-100 + Math.round"]
+    I --> J[Valores sanitizados]
+    H -- "En rango" --> J
+    J --> K{Pulsa botón}
+
+    F -- "No, deja vacío" --> K
+
+    K -- Cancelar --> L([Modal se cierra<br/>Sin cambios])
+
+    K -- Guardar --> M{"¿Título vacío?"}
+    M -- Sí --> N["Error inline:<br/>borde rojo +<br/>'El título es obligatorio'"]
+    N --> D
+
+    M -- No --> O["Se crea la tarea:<br/>• id: crypto.randomUUID<br/>• status: backlog<br/>• createdAt: now<br/>• ice: valores o vacío"]
+    O --> P["Se guarda en<br/><b>localStorage</b>"]
+    P --> Q["Modal se cierra"]
+    Q --> R{"¿Se definió<br/>I + C + E completo?"}
+
+    R -- Sí --> S["ICE Score = <br/>Math.round·I+C+E·/3<br/>Fuente: Manual"]
+    R -- No --> T["ICE Score =<br/><b>Pendiente</b>"]
+
+    S --> U["La tarjeta aparece<br/>en <b>TaskList</b><br/>ordenada por ICE"]
+    T --> U
+
+    U --> V{"¿Tiene descripción<br/>y API key?"}
+    V -- Sí --> W["Botón <b>Calcular ICE con IA</b><br/>disponible para usar"]
+    V -- No --> X["Botón deshabilitado<br/>con tooltip explicativo"]
+    W --> Y([Fin del flujo<br/>de creación])
+    X --> Y
+
+    style A fill:#4F46E5,color:#fff,stroke:#3730A3
+    style Y fill:#4F46E5,color:#fff,stroke:#3730A3
+    style L fill:#9CA3AF,color:#fff,stroke:#6B7280
+    style N fill:#EF4444,color:#fff,stroke:#DC2626
+    style S fill:#10B981,color:#fff,stroke:#059669
+    style T fill:#F59E0B,color:#fff,stroke:#D97706
+    style W fill:#10B981,color:#fff,stroke:#059669
+    style X fill:#9CA3AF,color:#fff,stroke:#6B7280

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" font-family="Roboto, Arial, sans-serif">
+  <title>Mockup: Flujo Calcular ICE con IA (estados del botón y loading)</title>
+  <desc>Flujo visual del botón AiEstimateButton en sus tres estados: normal, loading y disabled. Material UI: Buttons, CircularProgress, Tooltips.</desc>
+
+  <defs>
+    <filter id="card-shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+    <filter id="tooltip-shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="680" fill="#FAFAFA"/>
+
+  <!-- ===== ESTADO 1: Botón habilitado (normal) ===== -->
+  <text x="20" y="30" fill="#424242" font-size="15" font-weight="500">Estado 1: Botón habilitado (tarea con descripción + API key)</text>
+
+  <rect x="20" y="46" width="860" height="140" rx="8" fill="#FFFFFF" filter="url(#card-shadow)"/>
+
+  <!-- Card header -->
+  <text x="44" y="80" fill="#212121" font-size="16" font-weight="500">Implementar login con OAuth</text>
+  <rect x="720" y="60" width="80" height="28" rx="14" fill="#E3F2FD"/>
+  <text x="760" y="79" text-anchor="middle" fill="#1565C0" font-size="12" font-weight="500">Doing</text>
+
+  <line x1="44" y1="96" x2="856" y2="96" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- ICE Pendiente -->
+  <text x="56" y="128" fill="#BDBDBD" font-size="22" font-weight="500">Pendiente</text>
+  <text x="56" y="143" fill="#9E9E9E" font-size="11">ICE SCORE</text>
+
+  <!-- I/C/E -->
+  <text x="220" y="125" fill="#757575" font-size="10">I: --</text>
+  <text x="280" y="125" fill="#757575" font-size="10">C: --</text>
+  <text x="340" y="125" fill="#757575" font-size="10">E: --</text>
+
+  <line x1="44" y1="152" x2="856" y2="152" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Normal button (outlined primary) -->
+  <rect x="44" y="160" width="190" height="36" rx="4" fill="transparent" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="139" y="183" text-anchor="middle" fill="#1976D2" font-size="12" font-weight="500">CALCULAR ICE CON IA</text>
+
+  <!-- Arrow annotation -->
+  <text x="260" y="183" fill="#1976D2" font-size="14">←</text>
+  <text x="280" y="183" fill="#757575" font-size="12" font-style="italic">Click abre ConfirmModal</text>
+
+  <!-- ===== ESTADO 2: Loading (llamada en curso) ===== -->
+  <text x="20" y="226" fill="#424242" font-size="15" font-weight="500">Estado 2: Loading (llamada a Gemini API en curso)</text>
+
+  <rect x="20" y="242" width="860" height="140" rx="8" fill="#FFFFFF" filter="url(#card-shadow)"/>
+
+  <!-- Card header -->
+  <text x="44" y="276" fill="#212121" font-size="16" font-weight="500">Implementar login con OAuth</text>
+  <rect x="720" y="256" width="80" height="28" rx="14" fill="#E3F2FD"/>
+  <text x="760" y="275" text-anchor="middle" fill="#1565C0" font-size="12" font-weight="500">Doing</text>
+
+  <line x1="44" y1="292" x2="856" y2="292" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- ICE Pendiente -->
+  <text x="56" y="324" fill="#BDBDBD" font-size="22" font-weight="500">Pendiente</text>
+  <text x="56" y="339" fill="#9E9E9E" font-size="11">ICE SCORE</text>
+
+  <line x1="44" y1="348" x2="856" y2="348" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Loading button (disabled style with spinner) -->
+  <rect x="44" y="356" width="190" height="36" rx="4" fill="#E0E0E0"/>
+
+  <!-- Spinner (Material CircularProgress) -->
+  <circle cx="72" cy="374" r="8" fill="none" stroke="#9E9E9E" stroke-width="2" stroke-dasharray="38" stroke-dashoffset="10" stroke-linecap="round"/>
+
+  <text x="88" y="379" fill="#9E9E9E" font-size="12" font-weight="500">CALCULANDO...</text>
+
+  <!-- Arrow annotation -->
+  <text x="260" y="379" fill="#FF9800" font-size="14">←</text>
+  <text x="280" y="379" fill="#757575" font-size="12" font-style="italic">Botón disabled + spinner + texto cambiado</text>
+
+  <!-- ===== ESTADO 3: Disabled (sin descripción) ===== -->
+  <text x="20" y="422" fill="#424242" font-size="15" font-weight="500">Estado 3: Disabled (tarea sin descripción)</text>
+
+  <rect x="20" y="438" width="860" height="120" rx="8" fill="#FFFFFF" filter="url(#card-shadow)"/>
+
+  <text x="44" y="472" fill="#212121" font-size="16" font-weight="500">Tarea sin descripción</text>
+  <rect x="720" y="452" width="90" height="28" rx="14" fill="#F5F5F5"/>
+  <text x="765" y="471" text-anchor="middle" fill="#616161" font-size="12" font-weight="500">Backlog</text>
+
+  <line x1="44" y1="488" x2="856" y2="488" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Disabled button -->
+  <rect x="44" y="500" width="190" height="36" rx="4" fill="transparent" stroke="#E0E0E0" stroke-width="1"/>
+  <text x="139" y="523" text-anchor="middle" fill="#BDBDBD" font-size="12" font-weight="500">CALCULAR ICE CON IA</text>
+
+  <!-- Tooltip (Material Tooltip) -->
+  <rect x="44" y="542" width="280" height="32" rx="4" fill="#616161" filter="url(#tooltip-shadow)"/>
+  <!-- Tooltip arrow -->
+  <polygon points="90,542 98,534 106,542" fill="#616161"/>
+  <text x="58" y="563" fill="#FFFFFF" font-size="12">Añade una descripción para poder estimar con IA</text>
+
+  <!-- ===== ESTADO 4: Disabled (sin API key) ===== -->
+  <text x="20" y="604" fill="#424242" font-size="15" font-weight="500">Estado 4: Disabled (sin API key configurada)</text>
+
+  <!-- Disabled button -->
+  <rect x="20" y="618" width="190" height="36" rx="4" fill="transparent" stroke="#E0E0E0" stroke-width="1"/>
+  <text x="115" y="641" text-anchor="middle" fill="#BDBDBD" font-size="12" font-weight="500">CALCULAR ICE CON IA</text>
+
+  <!-- Tooltip -->
+  <rect x="220" y="623" width="220" height="28" rx="4" fill="#616161" filter="url(#tooltip-shadow)"/>
+  <polygon points="220,637 212,637 220,630" fill="#616161"/>
+  <text x="234" y="642" fill="#FFFFFF" font-size="12">Configura tu API key primero</text>
+</svg>

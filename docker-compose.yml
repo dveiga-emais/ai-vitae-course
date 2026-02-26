@@ -1,0 +1,8 @@
+services:
+  ai-vitae-course:
+    image: node:22
+    volumes:
+      - ".:/workspace"
+    command: sleep infinity
+    ports:
+      - 3333:80

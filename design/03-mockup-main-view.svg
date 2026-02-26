@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 820" font-family="Roboto, Arial, sans-serif">
+  <title>Mockup: Pantalla Principal (MainView)</title>
+  <desc>Vista principal con AppBar (Material), Toolbar de filtros y lista de TaskCards. Convenciones Material UI: AppBar elevada, IconButtons, Chips, outlined selects.</desc>
+
+  <defs>
+    <filter id="appbar-shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="card-shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#000" flood-opacity="0.12"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.10"/>
+    </filter>
+    <filter id="fab-shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="820" fill="#FAFAFA"/>
+
+  <!-- ========== APP BAR (Material AppBar, elevation dp4) ========== -->
+  <rect x="0" y="0" width="900" height="64" fill="#1976D2" filter="url(#appbar-shadow)"/>
+  <!-- App title -->
+  <text x="24" y="40" fill="#FFFFFF" font-size="20" font-weight="500">Gestor de Tareas ICE</text>
+
+  <!-- AppBar actions (right side) -->
+  <!-- Export button (text button on dark) -->
+  <rect x="580" y="16" width="90" height="32" rx="4" fill="transparent" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="625" y="37" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="500">EXPORTAR</text>
+
+  <!-- Import button -->
+  <rect x="682" y="16" width="90" height="32" rx="4" fill="transparent" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="727" y="37" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="500">IMPORTAR</text>
+
+  <!-- Settings icon button -->
+  <circle cx="810" cy="32" r="20" fill="transparent"/>
+  <text x="810" y="38" text-anchor="middle" fill="#FFFFFF" font-size="20">⚙</text>
+
+  <!-- ========== TOOLBAR (filtros y búsqueda) ========== -->
+  <rect x="0" y="64" width="900" height="72" fill="#FFFFFF" filter="url(#card-shadow)"/>
+
+  <!-- + Nueva tarea: Contained button (Material primary) -->
+  <rect x="24" y="80" width="150" height="40" rx="4" fill="#1976D2"/>
+  <text x="99" y="105" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="500">+ NUEVA TAREA</text>
+
+  <!-- Search field (outlined) -->
+  <rect x="190" y="80" width="240" height="40" rx="4" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="210" y="105" fill="#9E9E9E" font-size="13">🔍  Buscar tareas...</text>
+
+  <!-- Status filter (outlined select) -->
+  <rect x="446" y="80" width="140" height="40" rx="4" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="462" y="97" fill="#757575" font-size="10">Estado</text>
+  <text x="462" y="112" fill="#212121" font-size="13">Todos</text>
+  <text x="570" y="106" fill="#757575" font-size="14">▾</text>
+
+  <!-- Sort select (outlined) -->
+  <rect x="600" y="80" width="180" height="40" rx="4" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="616" y="97" fill="#757575" font-size="10">Ordenar por</text>
+  <text x="616" y="112" fill="#212121" font-size="13">ICE (mayor primero)</text>
+  <text x="764" y="106" fill="#757575" font-size="14">▾</text>
+
+  <!-- ========== TASK LIST ========== -->
+  <!-- Container centered (max-w-4xl equivalent) -->
+
+  <!-- TaskCard 1: Con ICE calculado (Material Card elevation dp2) -->
+  <rect x="40" y="160" width="820" height="220" rx="8" fill="#FFFFFF" filter="url(#card-shadow)"/>
+
+  <!-- Card header -->
+  <text x="64" y="196" fill="#212121" font-size="16" font-weight="500">Implementar login con OAuth</text>
+
+  <!-- Status chip (Material Chip) -->
+  <rect x="680" y="172" width="80" height="28" rx="14" fill="#E3F2FD"/>
+  <text x="720" y="191" text-anchor="middle" fill="#1565C0" font-size="12" font-weight="500">Doing</text>
+  <!-- Chip dropdown indicator -->
+  <text x="748" y="191" fill="#1565C0" font-size="10">▾</text>
+
+  <!-- Divider -->
+  <line x1="64" y1="212" x2="836" y2="212" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- ICE Score section -->
+  <text x="80" y="256" fill="#1976D2" font-size="36" font-weight="700">72</text>
+  <text x="80" y="274" fill="#757575" font-size="12">ICE SCORE</text>
+
+  <!-- I/C/E breakdown -->
+  <text x="180" y="244" fill="#757575" font-size="11" font-weight="500">IMPACT</text>
+  <text x="180" y="262" fill="#212121" font-size="16" font-weight="500">85</text>
+  <text x="280" y="244" fill="#757575" font-size="11" font-weight="500">CONFIDENCE</text>
+  <text x="280" y="262" fill="#212121" font-size="16" font-weight="500">60</text>
+  <text x="400" y="244" fill="#757575" font-size="11" font-weight="500">EASE</text>
+  <text x="400" y="262" fill="#212121" font-size="16" font-weight="500">70</text>
+
+  <!-- Source chip -->
+  <rect x="520" y="238" width="72" height="24" rx="12" fill="#E8F5E9"/>
+  <text x="556" y="255" text-anchor="middle" fill="#2E7D32" font-size="11" font-weight="500">Fuente: IA</text>
+
+  <!-- AI rationale -->
+  <text x="80" y="300" fill="#616161" font-size="12" font-style="italic">"Alto impacto en UX, confianza media por dependencia de terceros, facilidad moderada."</text>
+
+  <!-- Divider -->
+  <line x1="64" y1="318" x2="836" y2="318" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Action buttons (Material text/outlined buttons) -->
+  <rect x="64" y="330" width="170" height="36" rx="4" fill="transparent" stroke="#1976D2" stroke-width="1"/>
+  <text x="149" y="353" text-anchor="middle" fill="#1976D2" font-size="12" font-weight="500">CALCULAR ICE CON IA</text>
+
+  <text x="280" y="353" fill="#757575" font-size="12" font-weight="500" cursor="pointer">EDITAR</text>
+
+  <text x="360" y="353" fill="#D32F2F" font-size="12" font-weight="500" cursor="pointer">ELIMINAR</text>
+
+  <!-- TaskCard 2: ICE Pendiente -->
+  <rect x="40" y="400" width="820" height="200" rx="8" fill="#FFFFFF" filter="url(#card-shadow)"/>
+
+  <!-- Card header -->
+  <text x="64" y="436" fill="#212121" font-size="16" font-weight="500">Revisar documentación del API</text>
+
+  <!-- Status chip -->
+  <rect x="680" y="412" width="90" height="28" rx="14" fill="#F5F5F5"/>
+  <text x="725" y="431" text-anchor="middle" fill="#616161" font-size="12" font-weight="500">Backlog</text>
+  <text x="758" y="431" fill="#616161" font-size="10">▾</text>
+
+  <!-- Divider -->
+  <line x1="64" y1="452" x2="836" y2="452" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- ICE Pendiente -->
+  <text x="80" y="492" fill="#BDBDBD" font-size="28" font-weight="500">Pendiente</text>
+  <text x="80" y="510" fill="#9E9E9E" font-size="12">ICE SCORE</text>
+
+  <!-- I/C/E breakdown (partial) -->
+  <text x="260" y="484" fill="#757575" font-size="11" font-weight="500">IMPACT</text>
+  <text x="260" y="502" fill="#BDBDBD" font-size="16" font-weight="500">--</text>
+  <text x="360" y="484" fill="#757575" font-size="11" font-weight="500">CONFIDENCE</text>
+  <text x="360" y="502" fill="#212121" font-size="16" font-weight="500">40</text>
+  <text x="480" y="484" fill="#757575" font-size="11" font-weight="500">EASE</text>
+  <text x="480" y="502" fill="#BDBDBD" font-size="16" font-weight="500">--</text>
+
+  <!-- Divider -->
+  <line x1="64" y1="538" x2="836" y2="538" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Action buttons -->
+  <rect x="64" y="550" width="170" height="36" rx="4" fill="transparent" stroke="#1976D2" stroke-width="1"/>
+  <text x="149" y="573" text-anchor="middle" fill="#1976D2" font-size="12" font-weight="500">CALCULAR ICE CON IA</text>
+
+  <text x="280" y="573" fill="#757575" font-size="12" font-weight="500" cursor="pointer">EDITAR</text>
+
+  <text x="360" y="573" fill="#D32F2F" font-size="12" font-weight="500" cursor="pointer">ELIMINAR</text>
+
+  <!-- TaskCard 3: Done task -->
+  <rect x="40" y="620" width="820" height="180" rx="8" fill="#FFFFFF" filter="url(#card-shadow)"/>
+
+  <!-- Card header -->
+  <text x="64" y="656" fill="#212121" font-size="16" font-weight="500">Configurar linter del proyecto</text>
+
+  <!-- Status chip (Done - green) -->
+  <rect x="680" y="632" width="72" height="28" rx="14" fill="#E8F5E9"/>
+  <text x="716" y="651" text-anchor="middle" fill="#2E7D32" font-size="12" font-weight="500">Done</text>
+  <text x="742" y="651" fill="#2E7D32" font-size="10">▾</text>
+
+  <!-- Divider -->
+  <line x1="64" y1="672" x2="836" y2="672" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- ICE Score -->
+  <text x="80" y="712" fill="#1976D2" font-size="36" font-weight="700">90</text>
+  <text x="80" y="730" fill="#757575" font-size="12">ICE SCORE</text>
+
+  <text x="180" y="704" fill="#757575" font-size="11" font-weight="500">IMPACT</text>
+  <text x="180" y="722" fill="#212121" font-size="16" font-weight="500">80</text>
+  <text x="280" y="704" fill="#757575" font-size="11" font-weight="500">CONFIDENCE</text>
+  <text x="280" y="722" fill="#212121" font-size="16" font-weight="500">95</text>
+  <text x="400" y="704" fill="#757575" font-size="11" font-weight="500">EASE</text>
+  <text x="400" y="722" fill="#212121" font-size="16" font-weight="500">95</text>
+
+  <!-- Source chip -->
+  <rect x="520" y="698" width="90" height="24" rx="12" fill="#FFF3E0"/>
+  <text x="565" y="715" text-anchor="middle" fill="#E65100" font-size="11" font-weight="500">Fuente: Manual</text>
+
+  <!-- Divider -->
+  <line x1="64" y1="748" x2="836" y2="748" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Action buttons -->
+  <rect x="64" y="758" width="170" height="36" rx="4" fill="transparent" stroke="#1976D2" stroke-width="1"/>
+  <text x="149" y="781" text-anchor="middle" fill="#1976D2" font-size="12" font-weight="500">CALCULAR ICE CON IA</text>
+
+  <text x="280" y="781" fill="#757575" font-size="12" font-weight="500" cursor="pointer">EDITAR</text>
+
+  <text x="360" y="781" fill="#D32F2F" font-size="12" font-weight="500" cursor="pointer">ELIMINAR</text>
+</svg>

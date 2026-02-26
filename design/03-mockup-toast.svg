@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" font-family="Roboto, Arial, sans-serif">
+  <title>Mockup: Toast Notifications (Éxito y Error)</title>
+  <desc>Notificaciones toast en esquina superior derecha. Material UI: Snackbar-like con iconos, colores de estado y botón de cierre.</desc>
+
+  <defs>
+    <filter id="toast-shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#000" flood-opacity="0.16"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background simulating app corner -->
+  <rect width="500" height="360" fill="#FAFAFA"/>
+  <text x="20" y="30" fill="#424242" font-size="14" font-weight="500">Posición: fixed, top-right (esquina superior derecha)</text>
+
+  <!-- ===== SUCCESS TOAST ===== -->
+  <text x="20" y="70" fill="#2E7D32" font-size="12" font-weight="500">Toast de Éxito (auto-dismiss: 3s)</text>
+
+  <rect x="20" y="84" width="380" height="64" rx="4" fill="#FFFFFF" stroke="#4CAF50" stroke-width="1" filter="url(#toast-shadow)"/>
+
+  <!-- Green left accent bar (Material snackbar style) -->
+  <rect x="20" y="84" width="4" height="64" rx="2" fill="#4CAF50"/>
+
+  <!-- Success icon -->
+  <circle cx="48" cy="116" r="14" fill="#E8F5E9"/>
+  <text x="48" y="122" text-anchor="middle" fill="#2E7D32" font-size="16" font-weight="700">✓</text>
+
+  <!-- Message -->
+  <text x="72" y="112" fill="#212121" font-size="14" font-weight="500">ICE calculado correctamente</text>
+  <text x="72" y="130" fill="#757575" font-size="12">Los valores se han guardado en la tarea</text>
+
+  <!-- Close button -->
+  <text x="380" y="116" text-anchor="middle" fill="#9E9E9E" font-size="14">✕</text>
+
+  <!-- ===== ERROR TOAST ===== -->
+  <text x="20" y="184" fill="#C62828" font-size="12" font-weight="500">Toast de Error (auto-dismiss: 5s)</text>
+
+  <rect x="20" y="198" width="380" height="64" rx="4" fill="#FFFFFF" stroke="#EF5350" stroke-width="1" filter="url(#toast-shadow)"/>
+
+  <!-- Red left accent bar -->
+  <rect x="20" y="198" width="4" height="64" rx="2" fill="#EF5350"/>
+
+  <!-- Error icon -->
+  <circle cx="48" cy="230" r="14" fill="#FFEBEE"/>
+  <text x="48" y="236" text-anchor="middle" fill="#C62828" font-size="16" font-weight="700">!</text>
+
+  <!-- Message -->
+  <text x="72" y="224" fill="#212121" font-size="14" font-weight="500">Error al calcular ICE</text>
+  <text x="72" y="244" fill="#757575" font-size="12">API key no válida o límite de peticiones alcanzado</text>
+
+  <!-- Close button -->
+  <text x="380" y="230" text-anchor="middle" fill="#9E9E9E" font-size="14">✕</text>
+
+  <!-- ===== STACKED TOASTS EXAMPLE ===== -->
+  <text x="20" y="296" fill="#424242" font-size="12" font-weight="500">Apilamiento: múltiples toasts se apilan verticalmente con gap de 8px</text>
+
+  <!-- Mini stacked representation -->
+  <rect x="260" y="310" width="220" height="18" rx="3" fill="#FFFFFF" stroke="#4CAF50" stroke-width="1" opacity="0.6"/>
+  <text x="274" y="323" fill="#2E7D32" font-size="9">✓ API key guardada</text>
+
+  <rect x="260" y="332" width="220" height="18" rx="3" fill="#FFFFFF" stroke="#4CAF50" stroke-width="1" opacity="0.8"/>
+  <text x="274" y="345" fill="#2E7D32" font-size="9">✓ Tareas importadas correctamente</text>
+</svg>

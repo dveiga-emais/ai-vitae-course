@@ -1,0 +1,19 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json
+{
+    "name": "AI Vitae Course",
+    // Docker compose file path
+    "dockerComposeFile": ["../docker-compose.yml"],
+    // Service that corresponds to this project
+    "service": "ai-vitae-course",
+    // Main workspace folder
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        // Required VS Code extensions for this container
+        "extensions": [
+            "GitHub.copilot-chat",
+            "dbaeumer.vscode-eslint",
+            "esbenp.prettier-vscode",
+            "dsznajder.es7-react-js-snippets"
+        ]
+    }
+}

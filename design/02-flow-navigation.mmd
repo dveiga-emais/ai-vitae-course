@@ -1,0 +1,94 @@
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#4F46E5', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3730A3', 'lineColor': '#6366F1', 'secondaryColor': '#E0E7FF', 'tertiaryColor': '#F5F3FF', 'fontSize': '14px'}}}%%
+
+flowchart TD
+    START([Usuario abre la app]) --> CHECK{"¿Hay API key<br/>en localStorage?"}
+
+    %% ===== ONBOARDING =====
+    CHECK -- No --> ONBOARD["<b>Pantalla ApiKeySetup</b><br/>Pantalla completa bloqueante"]
+    ONBOARD --> KEY_INPUT["Pega API key<br/>+ Guardar y continuar"]
+    KEY_INPUT --> KEY_SAVE["Key guardada en localStorage<br/>Toast: API key guardada"]
+    KEY_SAVE --> MAIN
+
+    %% ===== MAIN VIEW =====
+    CHECK -- Sí --> MAIN["<b>Pantalla MainView</b><br/>Header + Toolbar + TaskList"]
+
+    %% ===== HEADER ACTIONS =====
+    MAIN --> HEADER_ACTIONS{"Acciones en<br/><b>Header</b>"}
+
+    HEADER_ACTIONS --> SETTINGS["⚙ Abre <b>SettingsModal</b>"]
+    SETTINGS --> SETTINGS_ACTIONS{"Acción en<br/>Settings"}
+    SETTINGS_ACTIONS --> CHANGE_KEY["Cambia API key<br/>→ Toast éxito"]
+    SETTINGS_ACTIONS --> DELETE_KEY["Eliminar key<br/>→ ConfirmModal"]
+    DELETE_KEY --> DELETE_CONFIRM{"¿Confirma?"}
+    DELETE_CONFIRM -- Sí --> ONBOARD
+    DELETE_CONFIRM -- No --> SETTINGS
+    CHANGE_KEY --> MAIN
+    SETTINGS_ACTIONS --> CLOSE_SETTINGS["Cierra modal"] --> MAIN
+
+    HEADER_ACTIONS --> EXPORT["Exportar JSON<br/>Descarga tareas-ice.json"]
+    EXPORT --> MAIN
+
+    HEADER_ACTIONS --> IMPORT["Importar JSON<br/>Selector de archivo"]
+    IMPORT --> IMPORT_PARSE{"¿Archivo válido?"}
+    IMPORT_PARSE -- Error --> IMPORT_ERR["Toast error:<br/>formato no válido"] --> MAIN
+    IMPORT_PARSE -- Válido --> IMPORT_CONFIRM["ConfirmModal:<br/>¿Reemplazar tareas?"]
+    IMPORT_CONFIRM -- Cancelar --> MAIN
+    IMPORT_CONFIRM -- Importar --> IMPORT_OK["Tareas reemplazadas<br/>Toast éxito"] --> MAIN
+
+    %% ===== TOOLBAR ACTIONS =====
+    MAIN --> TOOLBAR_ACTIONS{"Acciones en<br/><b>Toolbar</b>"}
+
+    TOOLBAR_ACTIONS --> NEW_TASK["+ Nueva tarea<br/>Abre <b>TaskModal</b> creación"]
+    NEW_TASK --> SAVE_NEW{"¿Guarda?"}
+    SAVE_NEW -- Sí --> MAIN
+    SAVE_NEW -- Cancelar --> MAIN
+
+    TOOLBAR_ACTIONS --> SEARCH["Buscar por texto<br/>Filtra en tiempo real"]
+    SEARCH --> MAIN
+
+    TOOLBAR_ACTIONS --> FILTER_STATUS["Filtrar por estado<br/>Todos / Backlog / Doing / Done"]
+    FILTER_STATUS --> MAIN
+
+    TOOLBAR_ACTIONS --> SORT["Cambiar orden<br/>ICE / Fecha / Título"]
+    SORT --> MAIN
+
+    %% ===== TASK CARD ACTIONS =====
+    MAIN --> CARD_ACTIONS{"Acciones en<br/><b>TaskCard</b>"}
+
+    CARD_ACTIONS --> CHANGE_STATUS["Cambia estado<br/>con select<br/><i>sin confirmación</i>"]
+    CHANGE_STATUS --> MAIN
+
+    CARD_ACTIONS --> EDIT_TASK["Editar<br/>Abre <b>TaskModal</b> edición"]
+    EDIT_TASK --> SAVE_EDIT{"¿Guarda?"}
+    SAVE_EDIT -- Sí --> MAIN
+    SAVE_EDIT -- Cancelar --> MAIN
+
+    CARD_ACTIONS --> DELETE_TASK["Eliminar<br/>Abre <b>ConfirmModal</b>"]
+    DELETE_TASK --> DEL_CONFIRM{"¿Confirma<br/>eliminar?"}
+    DEL_CONFIRM -- Sí --> DEL_OK["Tarea eliminada"] --> MAIN
+    DEL_CONFIRM -- No --> MAIN
+
+    CARD_ACTIONS --> AI_ICE["Calcular ICE con IA"]
+    AI_ICE --> AI_ENABLED{"¿Botón habilitado?"}
+    AI_ENABLED -- "No (sin desc/key)" --> AI_TOOLTIP["Tooltip explicativo"] --> MAIN
+    AI_ENABLED -- Sí --> AI_CONFIRM["ConfirmModal:<br/>¿Calcular / Recalcular?"]
+    AI_CONFIRM -- Cancelar --> MAIN
+    AI_CONFIRM -- Confirmar --> AI_LOADING["Estado loading<br/>Spinner + Calculando..."]
+    AI_LOADING --> AI_RESULT{"¿Respuesta<br/>Gemini API?"}
+    AI_RESULT -- Éxito --> AI_OK["ICE guardado<br/>Toast éxito"] --> MAIN
+    AI_RESULT -- Error --> AI_ERR["Toast error<br/>Valores sin cambio"] --> MAIN
+
+    %% ===== STYLES =====
+    style START fill:#4F46E5,color:#fff,stroke:#3730A3
+    style MAIN fill:#1E40AF,color:#fff,stroke:#1E3A8A
+    style ONBOARD fill:#7C3AED,color:#fff,stroke:#6D28D9
+    style SETTINGS fill:#6366F1,color:#fff,stroke:#4F46E5
+    style IMPORT_ERR fill:#EF4444,color:#fff,stroke:#DC2626
+    style AI_ERR fill:#EF4444,color:#fff,stroke:#DC2626
+    style AI_OK fill:#10B981,color:#fff,stroke:#059669
+    style DEL_OK fill:#10B981,color:#fff,stroke:#059669
+    style IMPORT_OK fill:#10B981,color:#fff,stroke:#059669
+    style KEY_SAVE fill:#10B981,color:#fff,stroke:#059669
+    style CHANGE_KEY fill:#10B981,color:#fff,stroke:#059669
+    style AI_LOADING fill:#F59E0B,color:#fff,stroke:#D97706
+    style AI_TOOLTIP fill:#9CA3AF,color:#fff,stroke:#6B7280
